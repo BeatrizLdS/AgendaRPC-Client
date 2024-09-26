@@ -96,7 +96,7 @@ class ConnectionViewModel: ObservableObject {
     
     private func setConnection(gettedAgenda: Agenda?) {
         DispatchQueue.main.async {
-            if gettedAgenda == nil || (gettedAgenda == self.connectedAgenda) {
+            if gettedAgenda == nil {
                 self.connected = false
                 self.isLoadingConnection = false
             } else {
