@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package agenda;
+
+message Contact{
+    string name = 1;
+    string phone = 2;
+}
+
+message ContactsList {
+    repeated Contact contacts = 1;
+}
+
+message Response {
+    bool hasSuccess = 1;
+    string description = 2;
+}
+
+message Empty {}
+
+service AgendaService {
+    rpc CheckConnection(Empty) returns (Response) {};
+    rpc GetAllContacts(Empty) returns (ContactsList) {};
+    rpc AddContact(Contact) returns (Response) {};
+    rpc RemoveContact(Contact) returns (Response) {};
+    rpc UpdateContact(Contact) returns (Response) {};
+}
